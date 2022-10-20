@@ -24,11 +24,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="keywords"
-      content="nitlix api, nitlix, nitlix server, nitlix servers"
+      content="go! concert"
     />
     <link
       rel="icon"
-      href="go/media/img/logo/go_square.png"
+      href="https://nitlix.pro/go/media/img/logo/go_square.png"
       type="image/icon type"
     />
     <!-- CSS Imports -->
@@ -72,6 +72,15 @@
         flex-direction: column;
         gap: 0.2rem;
         margin-top: 2rem;
+        width: max-content;
+      }
+      
+      .seat-grid-wrapper {
+        width: 100vw;
+        overflow-x: auto;
+        padding: 0 1rem;
+        display: grid;
+        place-items: center;
       }
 
       .seat {
@@ -246,7 +255,10 @@
           email and when the code is entered, your seat will be booked.
         </p>
       </div>
-      <div class="seat-grid"></div>
+      <div class="seat-grid-wrapper">
+        <div class="seat-grid scroller"></div>
+      </div>
+      
       <h2 style="margin-top: 2rem;font-family: inter;">T H E   &#160&#160&#160&#160 S T A G E</h2>
 
       <h2 style="margin-top: 2rem; align-self: flex-start">Seat Info</h2>
