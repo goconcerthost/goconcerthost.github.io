@@ -78,7 +78,7 @@
         width: 2rem;
         height: 2rem;
         padding: 0.25rem;
-        background-image: url("img/UI/seat.png");
+        background-image: url("https://nitlix.pro/img/UI/seat.png");
         background-size: cover;
         position: relative;
         z-index: 10;
@@ -86,15 +86,15 @@
       }
 
       .seat.taken {
-        background-image: url("img/UI/seat-taken.png");
+        background-image: url("https://nitlix.pro/img/UI/seat-taken.png");
       }
 
       .seat.selected {
-        background-image: url("img/UI/seat-selected.png");
+        background-image: url("https://nitlix.pro/img/UI/seat-selected.png");
       }
 
       .seat.reserved {
-        background-image: url("img/UI/seat-reserved.png");
+        background-image: url("https://nitlix.pro/img/UI/seat-reserved.png");
       }
 
 
@@ -408,7 +408,7 @@
         
         updateTotal()
 
-        gId(id).style.backgroundImage = "url('img/UI/seat-selected.png')";
+        gId(id).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-selected.png')";
         console.log(1)
 
         selectSeatGrid.innerHTML += `
@@ -446,7 +446,7 @@
         else {
           var el = gId(id);
           removeElement(el.id+"_select");
-          gId(id).style.backgroundImage = "url('img/UI/seat.png')";
+          gId(id).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat.png')";
           selectid = removeObjectFromList(selectid,el.id)
           updateTotal()
         }
@@ -457,7 +457,7 @@
     function unselect(id) {
       if (selected) {
         selected = false;
-        gId(selectid).style.backgroundImage = "url('img/UI/seat.png')";
+        gId(selectid).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat.png')";
         selectid.sp;
         gId("selectbutton").style.opacity = "0";
       }
@@ -472,10 +472,10 @@
                 if (!value['paid'])
                 {
 
-                    gId(key).style.backgroundImage = "url('img/UI/seat-reserved.png')";
+                    gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-reserved.png')";
                 }
                 else {
-                    gId(key).style.backgroundImage = "url('img/UI/seat-taken.png')";
+                    gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-taken.png')";
                 }
 
                 gId(key).dataset.pick = 'BLOCK'
