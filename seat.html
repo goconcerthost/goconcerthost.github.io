@@ -1,0 +1,695 @@
+<!--
+    
+    ▒██▄░▒█▌░▐██▒█▀█▀█▒██░░░░▐██▒▐▌▐▌     ▒▄█▀▀█▒█▀█▀█▒█▒█░▐█▀█▄░▐██▒▐█▀▀█▌▒▄█▀▀█     ▒▐▌▒▐▌░▒▄▀█░ 
+	▒▐█▒█▒█░─░█▌░░▒█░░▒██░░░─░█▌░▒▐▌░     ▒▀▀█▄▄░░▒█░░▒█▒█░▐█▌▐█─░█▌▒▐█▄▒█▌▒▀▀█▄▄     ░▒█▒█░▒█▄▄█▄ 
+	▒██░▒██▌░▐██░▒▄█▄░▒██▄▄█░▐██▒▐▌▐▌     ▒█▄▄█▀░▒▄█▄░▒▀▄▀░▐█▄█▀░▐██▒▐██▄█▌▒█▄▄█▀     ░▒▀▄▀░░░░▒█░ 
+
+
+
+
+     Default Automatic HTML Pallete - By Nitlixis AKA Nitlix
+     Copyright - NS (Imaganery, NR as ST) 2019+
+
+-->
+<!DOCTYPE html>
+<html lang="en-uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>go! concert booking</title>
+    <meta
+      name="description"
+      content="Book a ticket for a soon-upcoming BTEC Concert - go! concert"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="nitlix api, nitlix, nitlix server, nitlix servers"
+    />
+    <link
+      rel="icon"
+      href="go/media/img/logo/go_square.png"
+      type="image/icon type"
+    />
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/ui.css" />
+    <link rel="stylesheet" href="css/color.css" />
+    <link rel="stylesheet" href="css/icofont.css" />
+    <link rel="stylesheet" href="css/root.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
+    <link rel="stylesheet" href="css/skills.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/sidemenu.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/success-fail-boxes.css">
+
+    <!-- BOXICONS -->
+    <link rel="stylesheet" href="css/boxicons/css/animations.css" />
+    <link rel="stylesheet" href="css/boxicons/css/boxicons.css" />
+
+    <!-- AOS.JS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <style>
+      :root {
+        --background-color: white;
+        --text-color: black;
+        --text-color-desc: rgba(0, 0, 0, 0.437);
+      }
+      *:not(.preloader) {
+        transition-duration: 0.5s;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--background-color);
+
+        margin: 0;
+      }
+
+      .seat-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-top: 2rem;
+      }
+
+      .seat {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.25rem;
+        background-image: url("img/UI/seat.png");
+        background-size: cover;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      .seat.taken {
+        background-image: url("img/UI/seat-taken.png");
+      }
+
+      .seat.selected {
+        background-image: url("img/UI/seat-selected.png");
+      }
+
+      .seat.reserved {
+        background-image: url("img/UI/seat-reserved.png");
+      }
+
+
+      .space {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .seat-grid .row {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+      }
+
+      .hovering {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      .hovering > div {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        border-radius: 0.5rem;
+        box-shadow: 0.25rem 0.25rem 1.5rem rgba(0, 0, 0, 0.192);
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        column-gap: 0.25rem;
+      }
+
+      input {
+        border: none;
+        padding: .65rem 1.25rem;
+        border-radius: 0.25rem;
+        box-shadow: 0.25rem 0.25rem 1.5rem rgba(0, 0, 0, 0.192);
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        column-gap: 0.25rem;
+        width: 30ch;
+
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 1.15rem;
+      }
+
+      input:focus {
+        outline: none;
+        border: none;
+      }
+
+      .loader-03 {
+      border: .4rem solid currentcolor;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: 1s loader-03 linear infinite;
+      position: relative;
+    }
+
+    @keyframes loader-03 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    [class*=loader-] {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: inherit;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+  #status { 
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.388);
+    place-items: center;
+
+    z-index: 2000;
+  }
+
+  #status > div {
+    background: white;
+    border-radius: .5rem;
+    padding: 3rem;
+  }
+    </style>
+  </head>
+  <body id="body" class="scroller relative">
+    <div id="status">
+      <div>
+        <h1 style="font-size: 2.5rem;">Booking your seats</h1>
+        <p style="margin-top: 1rem">Selected Seats</p>
+        <h1 id="selseats">A1, A2</h1>
+
+        <div class="data-flex" style="width: max-content; gap: 1rem;margin-top: 2rem;">
+            <div class="loader-03"></div>
+
+            <button class="gradient data-flex animate" id="statusstatus">Setting up...</button>
+            <button class="data-flex alt movei" style="" onclick="closeBook()">
+                Close
+                <i class='bx bx-chevron-right'></i>
+            </button>
+        </div>
+        
+      </div>
+    </div>
+    <div id="success-display">
+      <div id="success-display-box">
+        <i class='bx bxs-check-circle' style="color: rgb(124, 243, 13); font-size: 2rem;"></i>
+    
+        <h1><span id="success-text"></span></h1>
+      </div>
+    </div>
+    
+    <div id="fail-display">
+      <div id="fail-display-box">
+        <i class='bx bxs-x-circle' style="color: rgb(245, 11, 70); font-size: 2rem;"></i>
+    
+        <p><span id="fail-text"></span></p>
+      </div>
+    </div>
+    
+    <div class="go-wrapper" style="width: 100%; padding-top: 3rem;">
+      <div class="logo" style="align-self: flex-start">
+        <h1 style="align-self: flex-start">
+          Book a seat for the
+          <span style="letter-spacing: -3px" class="highlight animate"
+            >go! concert</span
+          >
+        </h1>
+        <p style="max-width: 50rem">
+          Only one seat per person is allowed, in special cases they should be
+          booked directly. When booking the seat, please provide a school email
+          for each of the seats. A confirmation email will be sent to that provided
+          email and when the code is entered, your seat will be booked.
+        </p>
+      </div>
+      <div class="seat-grid"></div>
+      <h2 style="margin-top: 2rem;font-family: inter;">T H E   &#160&#160&#160&#160 S T A G E</h2>
+
+      <h2 style="margin-top: 2rem; align-self: flex-start">Seat Info</h2>
+      <div class="hovering">
+        <div class="data-flex">
+          <p>Seat</p>
+          <h2 id="seatid">A1</h2>
+        </div>
+
+        <div class="data-flex">
+          <p>Seat Class</p>
+          <h2 id="seatclass">Front Row</h2>
+        </div>
+
+        <div class="data-flex">
+          <p>Seat Price</p>
+          <h2 id="seatprice">£5</h2>
+        </div>
+
+
+
+
+      </div>
+      <h2 style="margin-top: 3rem; align-self: flex-start">Selected Seats</h2>
+
+      <div class="data-flex-v" id="seatinfo" style="margin-bottom: 3rem;align-self: flex-start;">
+        
+      </div>
+
+      <div class="data-flex nocenter" style="align-self: flex-start;margin-bottom: 3rem;gap: 2rem;">
+        <div class="data-flex-v nocenter">
+          <p>Total</p>
+          <h2>
+            £<span id="total">0</span>
+          </h2>
+        </div>
+
+        <div class="data-flex-v nocenter">
+          <p>Your School Email:</p>
+          <input type="text" id="data_email">
+        </div>
+
+        <div class="data-flex-v nocenter">
+          <p>Sharecode:</p>
+          <input type="text" style="width: 13ch;" id="data_sharecode">
+        </div>
+
+        <div class="data-flex-v nocenter">
+          <p>Book:</p>
+          <button class="data-flex alt movei" style="" onclick="bookSeats()">
+            Book these seats
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+
+
+       
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src="js/nitlixpro.js"></script>
+  <script src="js/wrapper.js"></script>
+
+  <script>
+    var prices = {};
+
+    var seatGrid = document.querySelector(".seat-grid");
+    var selectSeatGrid = gId('seatinfo')
+
+    var selected = false;
+    var selectid = [];
+
+    var totalprice = 0;
+
+    var seats = 0;
+
+    var normalSeatPrice = 3;
+    var balconySeatPrice = 3;
+    var frontRowSeatPrice = 3;
+    var secondRowSeatPrice = 3;
+
+    var seatlist = []
+
+    function gId(id) {
+      return document.getElementById(id);
+    }
+
+    function updateSeat(id) {
+      var el = gId(id);
+
+      if (!selected) {
+        gId("seatid").innerText = el.id;
+        gId("seatclass").innerText = el.dataset.class;
+        gId("seatprice").innerText = "£" + el.dataset.price;
+      }
+    }
+
+    function updateTotal(){
+        totalprice = 0;
+        for (var x = 0; x < selectid.length; x++){
+            totalprice += parseFloat(gId(selectid[x]).dataset.price);
+        }
+
+        gId('total').innerText = totalprice
+    }
+
+    function bookSeats(){
+        gId('status').style.display = "grid";
+        gId('statusstatus').innerText = "Setting up..."
+        email = gId('data_email').value;
+        sharecode = gId('data_sharecode')
+        var e = null;
+        var seatd = null;
+        if (selectid.length == 2){
+            seatd = selectid[0] + "&seat2=" + selectid[1]
+        }
+        else {
+            seatd = selectid[0]
+        }
+        gId('statusstatus').innerText = "Contacting..."
+
+
+        e = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=book&email='+email+'&seat='+seatd+"&sharekey="+sharecode)
+
+        if (!e['OK']){
+            gId('statusstatus').innerText = e['resp']
+        }
+        else {
+            gId('statusstatus').innerText = "Seats booked :)"
+
+        }
+        console.log(e)
+        
+        
+
+    
+    
+    }
+
+    function closeBook(){
+        gId('status').style.display = "none";
+    }
+
+    function select(id) {
+        if (gId(id).dataset.pick == "BLOCK"){
+            failNotif("Aww, this seat's taken :(",2500)
+            return
+        }
+      if (!selectid.includes(id)) {
+        if (selectid.length == 2){
+            failNotif('You cannot book more than 2 tickets at the same time.',2500)
+            return
+        }
+        var el = gId(id);
+        selectid.push(id);
+
+        
+        updateTotal()
+
+        gId(id).style.backgroundImage = "url('img/UI/seat-selected.png')";
+        console.log(1)
+
+        selectSeatGrid.innerHTML += `
+
+      <div class="hovering" id="${el.id}_select">
+        <div class="data-flex">
+          <p>Seat</p>
+          <h2>${el.id}</h2>
+        </div>
+
+        <div class="data-flex">
+          <p>Seat Class</p>
+          <h2>${el.dataset.class}</h2>
+        </div>
+
+        <div class="data-flex">
+          <p>Seat Price</p>
+          <h2>£${el.dataset.price}</h2>
+        </div>
+
+        <button class="data-flex alt" style="border-radius: 0.5rem; gap: 1rem;"  onclick="select('${id}')">
+          <i class='bx bxs-trash' style="font-size: 1.5rem !important;"></i>
+
+          <p style="color: var(--background-color); font-size: 1.25rem; font-weight:600;">
+            Remove from list
+          </p>
+        </button>
+
+
+      </div>
+
+
+        `
+        }
+        else {
+          var el = gId(id);
+          removeElement(el.id+"_select");
+          gId(id).style.backgroundImage = "url('img/UI/seat.png')";
+          selectid = removeObjectFromList(selectid,el.id)
+          updateTotal()
+        }
+
+      }
+    
+
+    function unselect(id) {
+      if (selected) {
+        selected = false;
+        gId(selectid).style.backgroundImage = "url('img/UI/seat.png')";
+        selectid.sp;
+        gId("selectbutton").style.opacity = "0";
+      }
+    }
+
+    function updateBookings(){
+        var data = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=seats&secret')
+
+        if (data['OK']){
+            var seatdata = data['resp'];
+            for (const [key, value] of Object.entries(seatdata)) {
+                if (!value['paid'])
+                {
+
+                    gId(key).style.backgroundImage = "url('img/UI/seat-reserved.png')";
+                }
+                else {
+                    gId(key).style.backgroundImage = "url('img/UI/seat-taken.png')";
+                }
+
+                gId(key).dataset.pick = 'BLOCK'
+                    
+            }
+        }
+    }
+
+    function registerRow(info) {
+      seatGrid.innerHTML += `<div class='row' id='${info["row"]}'></div>`;
+
+      var row = gId(info["row"]);
+
+      var object = info["structure"];
+      var seat = 1;
+
+      
+
+      for (var i = 0; i < info["structure"].length; i++) {
+        type = info["structure"][i]["type"];
+        data = info["structure"][i]["data"];
+        if (type == "seat") {
+          for (var x = 0; x < data[0]; x++) {
+            row.innerHTML += `<div class="seat" id="${
+              info["row"] + seat
+            }" data-price="${data[1]}" data-class="${data[2]}" data-pick="ALLOW"></div>`;
+
+
+            seatlist.push(info["row"] + seat)
+            //analytics
+            seat++;
+            
+            
+
+            seats = seats + parseInt(data[1]);
+
+            //console.log(seats);
+          }
+        }
+        if (type == "space") {
+          for (var x = 0; x < data; x++) {
+            row.innerHTML += `<div class="space"></div>`;
+          }
+        }
+      }
+    }
+
+    registerRow({
+      row: "LB",
+      structure: [
+        { type: "seat", data: [10, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [4, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [3, balconySeatPrice, "Balcony"] },
+      ],
+    });
+
+    registerRow({
+      row: "RB",
+      structure: [
+        { type: "seat", data: [10, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [4, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, balconySeatPrice, "Balcony"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [3, balconySeatPrice, "Balcony"] },
+      ],
+    });
+
+    registerRow({
+      row: "SPACE",
+      structure: [{ type: "space", data: 30 }],
+    });
+
+    registerRow({
+      row: "J",
+      structure: [
+        { type: "space", data: 9 },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 8 },
+      ],
+    });
+
+    registerRow({
+      row: "I",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "H",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "G",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "F",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "E",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "D",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "C",
+      structure: [
+        { type: "space", data: 4 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, normalSeatPrice, "Normal"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [5, normalSeatPrice, "Normal"] },
+      ],
+    });
+
+    registerRow({
+      row: "B",
+      structure: [
+        { type: "seat", data: [9, secondRowSeatPrice, "Second Row"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [12, secondRowSeatPrice, "Second Row"] },
+        { type: "space", data: 1 },
+        { type: "seat", data: [9, secondRowSeatPrice, "Second Row"] },
+      ],
+    });
+
+
+
+    var all = document.querySelectorAll(".seat");
+    console.log(all.length);
+    for (var x = 0; x < all.length; x++) {
+      all[x].onmouseover = function () {
+        updateSeat(this.id);
+      };
+
+      all[x].onclick = function () {
+        select(this.id);
+      };
+      
+      //select(all[x].id)
+    }
+
+    //nSF Init for seat positions
+
+    function checkForStr(object) {
+      return typeof object === "string" || object instanceof String;
+    }
+
+    //nSF Syntax Solver
+
+    window.onload = function () {
+      var l = document.querySelectorAll(".seat");
+      nitChangeScreen(mpf=1);
+      updateBookings()
+      var seatupdater = setInterval(()=>{
+        updateBookings()
+      },5000)
+    };
+  </script>
+</html>

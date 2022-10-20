@@ -1,0 +1,76 @@
+.red {
+    color: red;
+}
+
+.text-decor {
+	background: var(--gradient2);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip:content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mc-dark-red, .§4, .DARK_RED {
+    color: #AA0000 !important;
+}
+
+.mc-red, .§c, .RED {
+    color: #FF5555 !important;
+}
+
+.mc-gold, .§6, .GOLD {
+    color: #FFAA00 !important;
+}
+
+.mc-yellow, .§e, .YELLOW {
+    color: #FFFF55 !important;
+}
+
+.mc-dark-green, .§2, .DARK_GREEN {
+    color: #00AA00 !important;
+}
+
+.mc-green, .§a, .GREEN {
+    color: #55FF55 !important;
+}
+
+.mc-aqua, .§b, .AQUA {
+    color: #55FFFF !important;
+}
+
+.mc-dark-aqua, .§3, .DARK_AQUA {
+    color: #00AAAA !important;
+}
+
+.mc-dark-blue, .§1, .DARK_BLUE {
+    color: #0000AA !important;
+}
+
+.mc-blue, .§9, .BLUE {
+    color: #5555FF !important;
+}
+
+.mc-light-purple, .§d, .LIGHT_PURPLE {
+    color: #FF55FF !important;
+}
+
+.mc-dark-purple, .§5, .PURPLE {
+    color: #AA00AA !important;
+}
+
+.mc-white, .§f, .WHITE {
+    color: #FFFFFF !important;
+}
+
+.mc-gray, .§7, .GRAY {
+    color: #AAAAAA !important;
+}
+
+.mc-dark-gray, .§8, .DARK_GRAY {
+    color: #555555 !important;
+}
+
+.mc-black, .§0, .BLACK{
+    color: #000000 !important;
+}

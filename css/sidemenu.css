@@ -1,0 +1,48 @@
+#sidemenu {
+    display: flex; gap: 4rem;
+    flex-direction: column;
+    padding: 2rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 150;
+    
+    background: var(--background-color);
+    border-left: solid 1px var(--shadow-color);
+
+    transform: translateX(20rem);
+
+
+}
+
+#sidemenu p {
+    color: var(--text-color);cursor: pointer;
+    
+    font-family: Inter; font-weight: 500; font-size: 1.25rem;
+
+}
+
+#sidemenu .data-flex-v {
+    gap: 1rem;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#sidemenu p:hover {
+    color: var(--text-color-desc)
+}
+
+@media screen and (min-width: 990px){
+    .menubutton {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px){
+    #header > .data-flex:nth-child(2) p,#header > .data-flex:nth-child(2) div{
+        display: none;
+    }
+
+}

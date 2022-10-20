@@ -1,0 +1,55 @@
+body {
+    background: url(../img/UI/frame.jpg);
+    background-size: cover;
+}
+
+
+.login {
+    padding: 2rem;
+    border-radius: .5rem;
+    border: solid 1px var(--shadow-color);
+
+    display: flex; gap: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 9;
+    background: var(--background-color);
+}
+
+.login > .data-flex-v {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+.login > .data-flex-v i {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.login > .data-flex-v > .data-flex{
+    margin-top: .5rem;
+}
+
+.login .logo h1 {
+    font-size: 2.5rem;
+}
+
+
+.circle {
+    width: 10rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--gradient1-r);
+    z-index: 8;
+
+
+}
+
+.circle.small {
+    width: 5rem;
+    transition: all .5s cubic-bezier(0.680, 0.075, 0.490, 1.565);
+    transform: scale(0);
+}

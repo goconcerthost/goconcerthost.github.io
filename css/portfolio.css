@@ -1,0 +1,95 @@
+.portfolio-wrapper {
+    width: calc(100vw - .5rem);
+    margin-top: 20rem;
+}
+
+
+.scrollcontainer {
+    width: calc(100vw - .5rem);
+    z-index: 99;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: flex;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    gap: 2rem;
+}
+
+.scroll-disabler {
+    width: 100vw;
+    height: 34.4px;
+    position: absolute;
+}
+
+.scrollcontainer::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.work-object {
+    background-color: var(--background-color);
+    border-radius: .75rem;
+    padding: 1.5rem 7.5rem;
+    gap: 1rem;
+    display: flex;flex-direction: column-reverse;align-items: center;justify-content: center;
+    border: solid 2px var(--shadow-color);
+}
+
+body .work-object {
+    box-shadow: 0 0 1rem rgba(255,255,255,0.7);
+    border: solid 2px var(--text-color);
+}
+
+.work-object:hover {
+        cursor: pointer;
+    }
+
+
+.work-object > h1{
+    font-family: Go;
+    font-weight: var(--fw-700);
+    color: var(--text-color);
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.work-object > img {
+    height: 3rem;
+
+}
+
+
+.work-object > svg {
+    width: 5rem;
+
+}
+
+.work-object .desc-flex {
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    color: var(--text-color-desc);
+    font-family: inter;
+    font-weight: var(--fw-500);
+    font-size: 1.1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: -.4rem;
+}
+
+.work-object .desc-flex i {
+    font-size: 1.5rem;
+}
+
+.work-object .desc-flex i.red {
+    color: #ee0a43;
+}
+
+.work-object .desc-flex i.green {
+    color: #65ee0a;
+}
