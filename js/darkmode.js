@@ -1,19 +1,10 @@
 function dark(){
-    try {
-        document.documentElement.classList.remove('lightmode')
-    }
-    catch(err){}
-    console.log(1)
     document.documentElement.classList.add('darkmode')
 
 }
 
 function light(){
-    try {
-        document.documentElement.classList.remove('lightmode')
-    }
-    catch(err){}
-    document.documentElement.classList.add('lightmode')
+    document.documentElement.classList.remove('darkmode')
 }
 
 

@@ -60,7 +60,7 @@ function toggleFullScreen(){
 
 
 function failNotif(msg, delay){
-    nId('fail-text').innerText = msg;
+    nId('fail-text').innerHTML = msg;
     nId('fail-display').classList.add('active');
     setTimeout(function(){
         nId('fail-display').classList.remove('active');
@@ -68,7 +68,7 @@ function failNotif(msg, delay){
 }
 
 function successNotif(msg, delay){
-    nId('success-text').innerText = msg;
+    nId('success-text').innerHTML = msg;
     nId('success-display').classList.add('active');
     setTimeout(function(){
         nId('success-display').classList.remove('active');

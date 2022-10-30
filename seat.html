@@ -1,16 +1,3 @@
-<!--
-    
-    ▒██▄░▒█▌░▐██▒█▀█▀█▒██░░░░▐██▒▐▌▐▌     ▒▄█▀▀█▒█▀█▀█▒█▒█░▐█▀█▄░▐██▒▐█▀▀█▌▒▄█▀▀█     ▒▐▌▒▐▌░▒▄▀█░ 
-	▒▐█▒█▒█░─░█▌░░▒█░░▒██░░░─░█▌░▒▐▌░     ▒▀▀█▄▄░░▒█░░▒█▒█░▐█▌▐█─░█▌▒▐█▄▒█▌▒▀▀█▄▄     ░▒█▒█░▒█▄▄█▄ 
-	▒██░▒██▌░▐██░▒▄█▄░▒██▄▄█░▐██▒▐▌▐▌     ▒█▄▄█▀░▒▄█▄░▒▀▄▀░▐█▄█▀░▐██▒▐██▄█▌▒█▄▄█▀     ░▒▀▄▀░░░░▒█░ 
-
-
-
-
-     Default Automatic HTML Pallete - By Nitlixis AKA Nitlix
-     Copyright - NS (Imaganery, NR as ST) 2019+
-
--->
 <!DOCTYPE html>
 <html lang="en-uk">
   <head>
@@ -49,9 +36,13 @@
 
     <!-- AOS.JS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 
     <style>
+
+      h1 {
+        font-family: poppins;
+      }
       :root {
         --background-color: white;
         --text-color: black;
@@ -73,6 +64,9 @@
         gap: 0.2rem;
         margin-top: 2rem;
         width: max-content;
+		background: white;
+		padding: 0 1rem;
+		border-radius: .75rem;
       }
       
       .seat-grid-wrapper {
@@ -81,6 +75,7 @@
         padding: 0 1rem;
         display: grid;
         place-items: center;
+		z-index: 2;
       }
 
       .seat {
@@ -138,6 +133,15 @@
         column-gap: 0.25rem;
       }
 
+	  .bubble {
+		width: 5rem; aspect-ratio: 1;
+		position: absolute;
+		z-index: 1;
+		border-radius: 50%;
+		background-size: cover;
+		background-position: center;
+	  }
+
       input {
         border: none;
         padding: .65rem 1.25rem;
@@ -147,7 +151,7 @@
         align-items: flex-start;
         gap: 0;
         column-gap: 0.25rem;
-        width: 30ch;
+        width: 25ch;
 
         font-family: Inter;
         font-weight: 600;
@@ -203,14 +207,47 @@
     border-radius: .5rem;
     padding: 3rem;
   }
+
+  .checkout-grid {
+	display: grid;
+	gap: 1rem;
+  }	
+
+  @media screen and (min-width: 800px) {
+	.checkout-grid {
+		grid-template-columns: repeat(4,auto);
+		grid-template-rows: auto;
+
+	}
+  }
+
+  @media screen and (max-width: 800px){
+	.checkout-grid {
+		grid-template-columns: repeat(2,auto);
+		grid-template-rows: repeat(2,auto);
+
+	}
+  }
     </style>
   </head>
   <body id="body" class="scroller relative">
+	<div class="bubble" style="background-image: url('slidepics/1.jpg'); top: 10rem; left: 2rem; width: 4rem;"></div>
+
+	<div class="bubble" style="background-image: url('slidepics/2.jpg'); top: 20rem; left: 4rem; width: 8rem;"></div>
+
+
+
+	<div class="bubble" style="background-image: url('slidepics/3.jpg'); top: 1rem; right: 30rem; width: 5rem;"></div>
+	<div class="bubble" style="background-image: url('slidepics/4.jpg'); top: 15rem; right: 2rem; width: 7rem;"></div>
+
+
+
+
     <div id="status">
       <div>
         <h1 style="font-size: 2.5rem;">Booking your seats</h1>
         <p style="margin-top: 1rem">Selected Seats</p>
-        <h1 id="selseats">A1, A2</h1>
+        <h1 id="selseats">Loading...</h1>
 
         <div class="data-flex" style="width: max-content; gap: 1rem;margin-top: 2rem;">
             <div class="loader-03"></div>
@@ -241,7 +278,7 @@
     </div>
     
     <div class="go-wrapper" style="width: 100%; padding-top: 3rem;">
-      <div class="logo" style="align-self: flex-start">
+      <div class="logo" style="align-self: flex-start; background: white; padding: 2rem;z-index: 2; border-radius: 1rem;">
         <h1 style="align-self: flex-start">
           Book a seat for the
           <span style="letter-spacing: -3px" class="highlight animate"
@@ -249,10 +286,14 @@
           >
         </h1>
         <p style="max-width: 50rem">
-          Only one seat per person is allowed, in special cases they should be
-          booked directly. When booking the seat, please provide a school email
-          for each of the seats. A confirmation email will be sent to that provided
-          email and when the code is entered, your seat will be booked.
+          Only three seats per person are allowed, in special cases they should be
+          booked directly ;) When booking the seat, please provide your school email. 
+		  
+		  A confirmation message will be sent to that email when you check out and your seat will be booked.
+
+		  The first row is reserved fully for the staff, however there might be a possibility of those seats running out...
+
+		  Please act responsibly: don't book 3 seats for just yourself and don't bring any crisps with you :)
         </p>
       </div>
       <div class="seat-grid-wrapper">
@@ -288,7 +329,7 @@
         
       </div>
 
-      <div class="data-flex nocenter" style="align-self: flex-start;margin-bottom: 3rem;gap: 2rem;">
+      <div class="checkout-grid" style="align-self: flex-start;margin-bottom: 3rem;gap: 2rem;">
         <div class="data-flex-v nocenter">
           <p>Total</p>
           <h2>
@@ -309,6 +350,7 @@
         <div class="data-flex-v nocenter">
           <p>Book:</p>
           <button class="data-flex alt movei" style="" onclick="bookSeats()">
+			
             Book these seats
             <i class='bx bx-chevron-right'></i>
           </button>
@@ -322,7 +364,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <script src="js/nitlixpro.js"></script>
-  <script src="js/wrapper.js"></script>
 
   <script>
     var prices = {};
@@ -342,7 +383,11 @@
     var frontRowSeatPrice = 3;
     var secondRowSeatPrice = 3;
 
-    var seatlist = []
+    var seatlist = [];
+
+	
+
+	var takenseats = {};
 
     function gId(id) {
       return document.getElementById(id);
@@ -371,19 +416,16 @@
         gId('status').style.display = "grid";
         gId('statusstatus').innerText = "Setting up..."
         email = gId('data_email').value;
-        sharecode = gId('data_sharecode')
+        sharecode = gId('data_sharecode').value;
+
+		gId('selseats').innerText = selectid.join(", ").toString()
+
         var e = null;
-        var seatd = null;
-        if (selectid.length == 2){
-            seatd = selectid[0] + "&seat2=" + selectid[1]
-        }
-        else {
-            seatd = selectid[0]
-        }
+        var seatd = selectid.join(".").toString()
         gId('statusstatus').innerText = "Contacting..."
 
 
-        e = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=book&email='+email+'&seat='+seatd+"&sharekey="+sharecode)
+        e = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=book&email='+email+'&seats='+seatd+"&sharekey="+sharecode)
 
         if (!e['OK']){
             gId('statusstatus').innerText = e['resp']
@@ -406,12 +448,12 @@
 
     function select(id) {
         if (gId(id).dataset.pick == "BLOCK"){
-            failNotif("Aww, this seat's taken :(",2500)
+            failNotif(`Seat taken by😳: <h1>${concord_dataset[takenseats[id]['user']]}</h1>`,2500)
             return
         }
       if (!selectid.includes(id)) {
-        if (selectid.length == 2){
-            failNotif('You cannot book more than 2 tickets at the same time.',2500)
+        if (selectid.length == 3){
+            failNotif('You cannot book more than 3 tickets at the same time.',2500)
             return
         }
         var el = gId(id);
@@ -476,24 +518,31 @@
     }
 
     function updateBookings(){
-        var data = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=seats&secret')
+      var data = nFetch('https://cloud.nitlix.pro/v2/goconcert?type=seats&secret')
 
-        if (data['OK']){
-            var seatdata = data['resp'];
-            for (const [key, value] of Object.entries(seatdata)) {
-                if (!value['paid'])
-                {
+      //console.log(data)
+      temptakenseats = {}
+      if (data['OK']){
+          var seatdata = data['resp'];
+          for (const [key, value] of Object.entries(seatdata)) {
+              if (!value['paid'])
+              {
+        
+                  gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-reserved.png')";
+              }
+              else {
+                  gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-taken.png')";
+              }
 
-                    gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-reserved.png')";
+                temptakenseats[key] = value
+                if (!key in takenseats){
+                    gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat.png')";
                 }
-                else {
-                    gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat-taken.png')";
-                }
 
-                gId(key).dataset.pick = 'BLOCK'
-                    
-            }
-        }
+              gId(key).dataset.pick = 'BLOCK'
+                  
+          }
+      }
     }
 
     function registerRow(info) {
@@ -697,7 +746,7 @@
 
     window.onload = function () {
       var l = document.querySelectorAll(".seat");
-      nitChangeScreen(mpf=1);
+      //nitChangeScreen(mpf=1);
       updateBookings()
       var seatupdater = setInterval(()=>{
         updateBookings()
