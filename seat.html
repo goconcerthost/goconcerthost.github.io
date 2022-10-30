@@ -15,7 +15,7 @@
     />
     <link
       rel="icon"
-      href="https://nitlix.pro/go/media/img/logo/go_square.png"
+      href="img/logo/go_square.png"
       type="image/icon type"
     />
     <!-- CSS Imports -->
@@ -67,6 +67,10 @@
 		background: white;
 		padding: 0 1rem;
 		border-radius: .75rem;
+      }
+
+      .go-wrapper {
+        overflow-x: hidden;
       }
       
       .seat-grid-wrapper {
@@ -321,7 +325,7 @@
         </div>
 
         <div class="data-flex">
-          <p>Seat Price</p>
+          <p>Price</p>
           <h2 id="seatprice">£5</h2>
         </div>
 
@@ -451,6 +455,8 @@
 
     function closeBook(){
         gId('status').style.display = "none";
+        selectSeatGrid.innerHTML = "";
+        selectid = []
     }
 
     function select(id) {
@@ -549,8 +555,12 @@
           }
 
           for (const [key, value] of Object.entries(takenseats)) {
-
-            if (!key in temptakenseats){
+            console.log(key)
+            console.log(takenseats)
+            console.log(temptakenseats)
+            console.log(key in temptakenseats)
+            if (!key in temptakenseats){ 
+                console.log(key + "113423")
                 gId(key).style.backgroundImage = "url('https://nitlix.pro/img/UI/seat.png')";
                 gId(key).dataset.pick = 'ALLOW'
             }
