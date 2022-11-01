@@ -474,7 +474,7 @@
     function select(id) {
         if (gId(id).dataset.pick == "BLOCK"){
             failNotif(`Seat taken by 😳: <h1>${takenseats[id]['user']}</h1>`,2500)
-            
+            return
         }
       if (!selectid.includes(id)) {
         if (selectid.length == 3){
