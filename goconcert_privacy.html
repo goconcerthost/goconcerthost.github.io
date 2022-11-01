@@ -192,23 +192,10 @@
             </div>
         
              
-        <h2 style="margin: 0;margin-top: 7rem;">Welcome, <span id="name">unknown user xd</span>! 🚀</h2>
+        <h2 style="margin: 0;margin-top: 7rem;">go! concert Privacy Policy🚀</h2>
 
-        <p style="margin:2rem 0">🍾 Here you can find all of the details for your temporary account :) Do not share the link above with anyone as everyone recieves their own.</p>
+        <p style="margin: 2rem 0;"></p>
 
-        <p>Seats booked with your sharecode</p>
-        <h1 id="seatswithsharecode">Loading...</h1>
-
-        <p style="margin-top: 2rem;">Your booked seats</p>
-        <h1 id="bookedseats">Loading...</h1>
-
-        
-
-        <a onclick="cancelSeats()" style="margin-top: 2rem;">
-            <h3>
-                Cancel your seats right now ➡️
-            </h3>
-        </a>
 
         <a href="seat.html" style="margin-top: 2rem;">
             <h3>
@@ -220,8 +207,6 @@
             go! concert | A place to embrace everything you have.
             <br><br>
             Need help? - For now: just contact 2123490@concordcollege.org.uk
-            <br><br>
-            <a href="https://goconcert.co.uk/goconcert_privacy"><p>Privacy policy</p></a>
         </p>
         </div>
         
@@ -229,60 +214,10 @@
     <script src="js/nitlixpro.js"></script>
 
     <script>
-        var url = new URL(document.URL);
-        var pass = url.searchParams.get("go_secure");
-        var email = url.searchParams.get("email");
-
-        
-
-        function cancelSeats(){
-            var data = nFetch(`https://cloud.nitlix.pro/v2/goconcert?type=unbook&pass=${pass}&email=${email}`);
-            if (data['OK']){
-                successNotif(data['resp'], 2500)
-            }
-            else {
-                failNotif(data['resp'], 2500)
-            }
-
-            loadAccount()
-        }
-
-        function getUser(email){
-        var data = nFetch(`https://cloud.nitlix.pro/v2/goconcert?type=getuser&email=${email}&code=btecsecure`)
-        if (data['OK']){
-            return data['resp']
-        }
-        else {
-            failNotif(data['resp'])
-        }
-        }
 
 
 
-        function loadAccount(){
-            var data = nFetch(`https://cloud.nitlix.pro/v2/goconcert?type=account&pass=${pass}&email=${email}`);
-            if (data['OK']){
-                    successNotif("Data loaded successfully :)", 2500)
-
-                    nId('seatswithsharecode').innerText = data['resp']['shares']
-                    nId('name').innerText = getUser(email)
-                    if (data['resp']['booked'].length != 0){
-                        nId('bookedseats').innerText = data['resp']['booked'].join(", ")
-                    }
-                    else {
-                        nId('bookedseats').innerText = "Come back please 😥"
-                    }
-                    
-                }
-                else {
-                    failNotif(data['resp'], 150000)
-                }
-        }
-
-        
-
-        loadAccount()
-
+    
         
     </script>
 
