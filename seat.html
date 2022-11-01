@@ -312,6 +312,8 @@
 		  The first row is reserved fully for the staff, however there might be a possibility of those seats running out...
 
 		  Please act responsibly: don't book 3 seats for just yourself and don't bring any crisps with you :)
+
+      By booking a seat, you agree to have your email stored and contacted at any point.
         </p>
       </div>
       <div class="seat-grid-wrapper">
@@ -461,15 +463,7 @@
     
     }
 
-    function getUser(email){
-      var data = nFetch(`https://cloud.nitlix.pro/v2/goconcert?type=getuser&email=${email}&code=btecsecure`)
-      if (data['OK']){
-        return data['resp']
-      }
-      else {
-        failNotif(data['resp'])
-      }
-    }
+
 
     function closeBook(){
         gId('status').style.display = "none";
@@ -479,8 +473,8 @@
 
     function select(id) {
         if (gId(id).dataset.pick == "BLOCK"){
-            failNotif(`Seat taken by 😳: <h1>${getUser(takenseats[id]['user'])}</h1>`,2500)
-            return
+            failNotif(`Seat taken by 😳: <h1>${takenseats[id]['user']}</h1>`,2500)
+            
         }
       if (!selectid.includes(id)) {
         if (selectid.length == 3){

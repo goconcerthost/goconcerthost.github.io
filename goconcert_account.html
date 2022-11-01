@@ -247,15 +247,6 @@
             loadAccount()
         }
 
-        function getUser(email){
-        var data = nFetch(`https://cloud.nitlix.pro/v2/goconcert?type=getuser&email=${email}&code=btecsecure`)
-        if (data['OK']){
-            return data['resp']
-        }
-        else {
-            failNotif(data['resp'])
-        }
-        }
 
 
 
@@ -265,7 +256,7 @@
                     successNotif("Data loaded successfully :)", 2500)
 
                     nId('seatswithsharecode').innerText = data['resp']['shares']
-                    nId('name').innerText = getUser(email)
+                    nId('name').innerText = email
                     if (data['resp']['booked'].length != 0){
                         nId('bookedseats').innerText = data['resp']['booked'].join(", ")
                     }
