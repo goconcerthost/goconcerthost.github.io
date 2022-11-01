@@ -76,10 +76,10 @@
       .seat-grid-wrapper {
         width: 100vw;
         overflow-x: auto;
-        padding: 0 1rem;
         display: grid;
         place-items: center;
 		z-index: 2;
+        height: max-content;
       }
 
       .seat {
@@ -238,6 +238,14 @@
         display: none;
     }
   }
+
+  @media screen and (max-width: 700px){
+	.checkout-grid {
+		grid-template-columns: auto;
+		grid-template-rows: repeat(4,auto);
+
+	}
+  }
     </style>
   </head>
   <body id="body" class="scroller relative">
@@ -263,7 +271,7 @@
             <div class="loader-03"></div>
 
             <button class="gradient data-flex animate" id="statusstatus">Setting up...</button>
-            <button class="data-flex alt movei" style="" onclick="closeBook()">
+            <button class="data-flex alt movei" onclick="closeBook()">
                 Close
                 <i class='bx bx-chevron-right'></i>
             </button>
@@ -359,7 +367,7 @@
 
         <div class="data-flex-v nocenter">
           <p>Book:</p>
-          <button class="data-flex alt movei" style="" onclick="bookSeats()">
+          <button class="data-flex alt movei" onclick="bookSeats()">
 			
             Book these seats
             <i class='bx bx-chevron-right'></i>
